@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/service_detail_image"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="#808080" />
+
+        <ImageView
+            android:id="@+id/service_rating_image"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/service_detail_image"
+            app:layout_constraintStart_toStartOf="@+id/service_detail_image"
+            tools:src="@android:drawable/btn_star_big_on" />
+
+        <TextView
+            android:id="@+id/service_rating_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/service_rating_image"
+            app:layout_constraintStart_toEndOf="@+id/service_rating_image"
+            app:layout_constraintTop_toTopOf="@+id/service_rating_image"
+            tools:text="16" />
+
+        <TextView
+            android:id="@+id/service_description_text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/person_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/service_detail_image"
+            tools:text="description" />
+
+        <ImageView
+            android:id="@+id/person_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/footer_separator"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:background="#808080" />
+
+        <TextView
+            android:id="@+id/person_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="TextView"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/person_image"
+            app:layout_constraintTop_toTopOf="@+id/person_image"
+            tools:text="John" />
+
+        <TextView
+            android:id="@+id/person_category_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/person_rating_image"
+            app:layout_constraintStart_toEndOf="@+id/person_image"
+            app:layout_constraintTop_toBottomOf="@+id/person_name_text"
+            tools:text="Programmer" />
+
+        <ImageView
+            android:id="@+id/person_rating_image"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/person_image"
+            app:layout_constraintStart_toEndOf="@+id/person_image"
+            tools:src="@android:drawable/btn_star_big_on"/>
+
+        <TextView
+            android:id="@+id/person_rating_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/person_rating_image"
+            app:layout_constraintStart_toEndOf="@+id/person_rating_image"
+            app:layout_constraintTop_toTopOf="@+id/person_rating_image"
+            tools:text="26" />
+
+        <TextView
+            android:id="@+id/footer_separator"
+            android:layout_width="fill_parent"
+            android:layout_height="5dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="#000000"
+            app:layout_constraintBottom_toTopOf="@+id/service_type_title_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/service_type_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="HOW"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/price_title_text"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/service_type_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/service_type_title_text"
+            app:layout_constraintStart_toEndOf="@+id/price_title_text"
+            tools:text="online" />
+
+        <TextView
+            android:id="@+id/price_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="PRICE"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/price_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/price_title_text"
+            app:layout_constraintStart_toEndOf="@+id/price_title_text"
+            tools:text="$10 per hour" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
