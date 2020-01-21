@@ -14,14 +14,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@mipmap/ic_launcher" />
 
-    <Button
-        android:id="@+id/user_button"
+    <TextView
+        android:id="@+id/user_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/Logo"
         android:layout_marginStart="20sp"
-        android:text="@string/user_view_button" />
+        android:layout_marginTop="20sp"
+        android:textStyle="bold"
+        android:text="@string/user_view_header" />
 
     <ImageView
         android:id="@+id/user_picture"
