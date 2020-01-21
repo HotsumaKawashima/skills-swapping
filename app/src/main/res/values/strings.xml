@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SkillsSwapping</string>
+    <string name="post_a_skill">POST A SKILL</string>
+    <string name="myy_post">MYPOST</string>
+    <string name="likes_view">LIkes</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="profile_view">profileView</string>
+    <string name="job_view">Job</string>
+    <string name="name_view">Name</string>
 </resources>
