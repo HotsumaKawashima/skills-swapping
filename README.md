@@ -1,6 +1,7 @@
 # SkillsSwapping
 
 **SkillsSwapping is a app which wants to help people get closer and swap their skill** <br />
+<br />
 <img src="/pic/get_it_on_google_play.png" width="150" height="50">
 
 ## Mock-up
