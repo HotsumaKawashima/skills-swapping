@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/user_picture"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/name_view"
+            android:layout_width="200dp"
+            android:layout_height="50sp"
+            app:layout_constraintTop_toBottomOf="@+id/user_picture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:text="@string/name_view" />
+
+        <TextView
+            android:id="@+id/job_view"
+            android:layout_width="200dp"
+            android:layout_height="50sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name_view"
+            android:gravity="center_horizontal"
+            android:text="@string/job_view" />
+
+        <ScrollView
+            android:id="@+id/profile_view"
+            android:layout_width="340dp"
+            android:layout_height="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/job_view"
+            android:text="@string/profile_view" />
+
+        <Button
+            android:id="@+id/edit_profile_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/profile_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="20sp"
+            android:text="@string/edit_profile" />
+
+        <Button
+            android:id="@+id/new_post_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/edit_profile_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/my_post_button"
+            android:layout_marginTop="20sp"
+            android:text="@string/post_a_skill" />
+
+        <Button
+            android:id="@+id/my_post_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/edit_profile_button"
+            app:layout_constraintStart_toEndOf="@id/new_post_button"
+            app:layout_constraintEnd_toStartOf="@id/likes_button"
+            android:layout_marginTop="20sp"
+            android:text="@string/myy_post" />
+
+        <Button
+            android:id="@+id/likes_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/edit_profile_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/my_post_button"
+            android:layout_marginTop="20sp"
+            android:text="@string/likes_view" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

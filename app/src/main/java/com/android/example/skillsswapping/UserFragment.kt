@@ -10,7 +10,10 @@ import android.widget.Button
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 
-class LoginFragment : Fragment(), View.OnClickListener {
+/**
+ * A simple [Fragment] subclass.
+ */
+class UserFragment : Fragment() , View.OnClickListener{
 
     lateinit var navController: NavController
 
@@ -19,20 +22,20 @@ class LoginFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        return inflater.inflate(R.layout.fragment_user, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
-        view.findViewById<Button>(R.id.signInBtn).setOnClickListener(this)
+        view.findViewById<Button>(R.id.new_post_button).setOnClickListener(this)
+        view.findViewById<Button>(R.id.my_post_button).setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
-       when(v!!.id){
-           R.id.signInBtn -> navController!!.navigate(R.id.action_loginFragment_to_topFragment)
-       }
+        when(v!!.id){
+            R.id.new_post_button -> navController!!.navigate(R.id.action_userFragment_to_newPostFragment)
+            R.id.my_post_button -> navController!!.navigate(R.id.action_userFragment_to_myPostsFragment)
+        }
     }
-
-
 }
