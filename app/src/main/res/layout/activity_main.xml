@@ -15,7 +15,7 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="1dp" />
+        app:logo="@mipmap/ic_launcher" />
 
     <fragment
         android:id="@+id/nav_host_fragment"
