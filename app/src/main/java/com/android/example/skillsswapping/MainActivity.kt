@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity(),
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         toolbar.setupWithNavController(navController)
-        setSupportActionBar(toolbar)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
