@@ -19,29 +19,15 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/headerBar"
-                android:layout_width="413dp"
-                android:layout_height="42dp"
-                android:background="@color/colorPrimary"
-                android:gravity="center_vertical"
-                android:text="header(temp)"
-                android:textAlignment="center"
-                android:textColor="@android:color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
                 android:id="@+id/categoriesTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="20dp"
                 android:text="Categories"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/headerBar" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:id="@+id/linearArt"

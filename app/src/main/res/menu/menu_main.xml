@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/topFragment"
+        android:title="HOME" />
+    <item
+        android:id="@+id/likes"
+        android:title="LIKES" />
+    <item
+        android:id="@+id/userFragment"
+        android:title="USER" />
+</menu>
