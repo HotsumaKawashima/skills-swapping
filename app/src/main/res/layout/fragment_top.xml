@@ -21,16 +21,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <com.android.example.skillsswapping.RoundImageView
             android:id="@+id/categoryIcon01"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginTop="24dp"
+            android:src="#808080"
             app:layout_constraintEnd_toStartOf="@+id/categoryIcon02"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/categoriesTitle"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toBottomOf="@+id/categoriesTitle" />
 
         <TextView
             android:id="@+id/categoryTitle01"
@@ -43,15 +43,15 @@
             app:layout_constraintStart_toStartOf="@+id/categoryIcon01"
             app:layout_constraintTop_toBottomOf="@+id/categoryIcon01" />
 
-        <ImageView
+        <com.android.example.skillsswapping.RoundImageView
             android:id="@+id/categoryIcon02"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:src="#808080"
             app:layout_constraintEnd_toStartOf="@+id/categoryIcon03"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/categoryIcon01"
-            app:layout_constraintTop_toTopOf="@+id/categoryIcon01"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toTopOf="@+id/categoryIcon01" />
 
         <TextView
             android:id="@+id/categoryTitle02"
@@ -64,15 +64,15 @@
             app:layout_constraintStart_toStartOf="@+id/categoryIcon02"
             app:layout_constraintTop_toBottomOf="@+id/categoryIcon02" />
 
-        <ImageView
+        <com.android.example.skillsswapping.RoundImageView
             android:id="@+id/categoryIcon03"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:src="#808080"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/categoryIcon02"
-            app:layout_constraintTop_toTopOf="@+id/categoryIcon02"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toTopOf="@+id/categoryIcon02" />
 
         <TextView
             android:id="@+id/categoryTitle03"
@@ -85,15 +85,15 @@
             app:layout_constraintStart_toStartOf="@+id/categoryIcon03"
             app:layout_constraintTop_toBottomOf="@+id/categoryIcon03" />
 
-        <ImageView
+        <com.android.example.skillsswapping.RoundImageView
             android:id="@+id/categoryIcon04"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginTop="16dp"
+            android:src="#808080"
             app:layout_constraintEnd_toEndOf="@+id/categoryIcon01"
             app:layout_constraintStart_toStartOf="@+id/categoryIcon01"
-            app:layout_constraintTop_toBottomOf="@+id/categoryTitle01"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toBottomOf="@+id/categoryTitle01" />
 
         <TextView
             android:id="@+id/categoryTitle04"
@@ -106,16 +106,16 @@
             app:layout_constraintStart_toStartOf="@+id/categoryIcon04"
             app:layout_constraintTop_toBottomOf="@+id/categoryIcon04" />
 
-        <ImageView
+        <com.android.example.skillsswapping.RoundImageView
             android:id="@+id/categoryIcon05"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginTop="16dp"
+            android:src="#808080"
             app:layout_constraintEnd_toEndOf="@+id/categoryIcon02"
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="@+id/categoryIcon02"
-            app:layout_constraintTop_toBottomOf="@+id/categoryTitle02"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toBottomOf="@+id/categoryTitle02" />
 
         <TextView
             android:id="@+id/categoryTitle05"
@@ -128,16 +128,16 @@
             app:layout_constraintStart_toStartOf="@+id/categoryIcon05"
             app:layout_constraintTop_toBottomOf="@+id/categoryIcon05" />
 
-        <ImageView
+        <com.android.example.skillsswapping.RoundImageView
             android:id="@+id/categoryIcon06"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginTop="16dp"
+            android:src="#808080"
             app:layout_constraintEnd_toEndOf="@+id/categoryIcon03"
             app:layout_constraintHorizontal_bias="0.873"
             app:layout_constraintStart_toStartOf="@+id/categoryIcon03"
-            app:layout_constraintTop_toBottomOf="@+id/categoryTitle03"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toBottomOf="@+id/categoryTitle03" />
 
         <TextView
             android:id="@+id/categoryTitle06"
@@ -167,11 +167,11 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginTop="24dp"
+            android:src="#808080"
             app:layout_constraintEnd_toStartOf="@+id/NewCategoryIcon02"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/categoryNameTitle"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toBottomOf="@+id/categoryNameTitle" />
 
         <TextView
             android:id="@+id/NewCategoryTxt01"
@@ -189,11 +189,11 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginTop="24dp"
+            android:src="#808080"
             app:layout_constraintEnd_toStartOf="@+id/NewCategoryIcon03"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/NewCategoryIcon01"
-            app:layout_constraintTop_toBottomOf="@+id/categoryNameTitle"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toBottomOf="@+id/categoryNameTitle" />
 
         <TextView
             android:id="@+id/NewCategoryTxt02"
@@ -211,11 +211,11 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginTop="24dp"
+            android:src="#808080"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/NewCategoryIcon02"
-            app:layout_constraintTop_toBottomOf="@+id/categoryNameTitle"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toBottomOf="@+id/categoryNameTitle" />
 
         <TextView
             android:id="@+id/NewCategoryTxt03"
