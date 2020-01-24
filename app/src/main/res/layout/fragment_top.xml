@@ -1,255 +1,271 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".TopFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+<layout>
+    <data>
+        <variable
+            name="topDataBinding"
+            type="com.android.example.skillsswapping.TopFragment" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".TopFragment">
 
-        <TextView
-            android:id="@+id/headerBar"
-            android:layout_width="413dp"
-            android:layout_height="42dp"
-            android:background="@color/colorPrimary"
-            android:gravity="center_vertical"
-            android:text="header(temp)"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/categoriesTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="20dp"
-            android:text="Categories"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/headerBar" />
-
-        <LinearLayout
-            android:id="@+id/linearArt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@+id/linearCooking"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/categoriesTitle">
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/selector_art" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
-                android:layout_width="80dp"
+                android:id="@+id/headerBar"
+                android:layout_width="413dp"
+                android:layout_height="42dp"
+                android:background="@color/colorPrimary"
+                android:gravity="center_vertical"
+                android:text="header(temp)"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/categoriesTitle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="20dp"
+                android:text="Categories"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/headerBar" />
+
+            <LinearLayout
+                android:id="@+id/linearArt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/linearCooking"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/categoriesTitle">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/selector_art" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Art"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearCooking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/linearPrograming"
+                app:layout_constraintStart_toEndOf="@+id/linearArt"
+                app:layout_constraintTop_toTopOf="@+id/linearArt">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/selector_cooking" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Cooking"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearPrograming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/linearCooking"
+                app:layout_constraintTop_toTopOf="@+id/linearCooking">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/selector_coding" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Programming"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearMusic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@+id/linearArt"
+                app:layout_constraintStart_toStartOf="@+id/linearArt"
+                app:layout_constraintTop_toBottomOf="@+id/linearArt">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/selector_music" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Music"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearBeauty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@+id/linearCooking"
+                app:layout_constraintStart_toStartOf="@+id/linearCooking"
+                app:layout_constraintTop_toBottomOf="@+id/linearCooking">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/selector_beauty" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Beauty"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearOthers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@+id/linearPrograming"
+                app:layout_constraintStart_toStartOf="@+id/linearPrograming"
+                app:layout_constraintTop_toBottomOf="@+id/linearPrograming">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/selector_others" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Others"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/selector_text"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/categoryNameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="48dp"
                 android:text="Art"
-                android:textColor="@drawable/selector_text"
-                android:textAlignment="center"
-                android:textSize="12sp" />
-        </LinearLayout>
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearMusic" />
 
-        <LinearLayout
-            android:id="@+id/linearCooking"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@+id/linearPrograming"
-            app:layout_constraintStart_toEndOf="@+id/linearArt"
-            app:layout_constraintTop_toTopOf="@+id/linearArt">
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/selector_cooking" />
-
-            <TextView
-                android:layout_width="80dp"
+            <LinearLayout
+                android:id="@+id/NewCategoryIcon01"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cooking"
-                android:textAlignment="center"
-                android:textColor="@drawable/selector_text"
-                android:textSize="12sp" />
-        </LinearLayout>
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/NewCategoryIcon02"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/categoryNameTitle">
 
-        <LinearLayout
-            android:id="@+id/linearPrograming"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/linearCooking"
-            app:layout_constraintTop_toTopOf="@+id/linearCooking">
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/selector_coding" />
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="Programming"
-            android:textColor="@drawable/selector_text"
-            android:textAlignment="center"
-            android:textSize="12sp" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/linearMusic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/linearArt"
-            app:layout_constraintStart_toStartOf="@+id/linearArt"
-            app:layout_constraintTop_toBottomOf="@+id/linearArt">
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src= "@drawable/selector_music" />
+                <TextView
+                    android:id="@+id/NewCategoryTxt01"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="texttexttexttexttexttexttext"
+                    android:textAlignment="viewStart"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="Music"
-            android:textColor="@drawable/selector_text"
-            android:textAlignment="center"
-            android:textSize="12sp" />
-        </LinearLayout>
+            <LinearLayout
+                android:id="@+id/NewCategoryIcon02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/NewCategoryIcon03"
+                app:layout_constraintStart_toEndOf="@+id/NewCategoryIcon01"
+                app:layout_constraintTop_toTopOf="@+id/NewCategoryIcon01">
 
-        <LinearLayout
-            android:id="@+id/linearBeauty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/linearCooking"
-            app:layout_constraintStart_toStartOf="@+id/linearCooking"
-            app:layout_constraintTop_toBottomOf="@+id/linearCooking">
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/selector_beauty"/>
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="Beauty"
-            android:textColor="@drawable/selector_text"
-            android:textAlignment="center"
-            android:textSize="12sp" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/NewCategoryTxt02"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="texttexttexttexttexttexttext"
+                    android:textAlignment="viewStart"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearOthers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/linearPrograming"
-            app:layout_constraintStart_toStartOf="@+id/linearPrograming"
-            app:layout_constraintTop_toBottomOf="@+id/linearPrograming">
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/selector_others" />
+            <LinearLayout
+                android:id="@+id/NewCategoryIcon03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/NewCategoryIcon02"
+                app:layout_constraintTop_toTopOf="@id/NewCategoryIcon02">
 
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="Others"
-            android:textColor="@drawable/selector_text"
-            android:textAlignment="center"
-            android:textSize="12sp"/>
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
-            android:id="@+id/categoryNameTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="48dp"
-            android:text="Art"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearMusic" />
-
-        <LinearLayout
-            android:id="@+id/NewCategoryIcon01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/NewCategoryIcon02"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/categoryNameTitle">
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/NewCategoryTxt01"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="texttexttexttexttexttexttext"
-            android:textAlignment="viewStart"
-            android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/NewCategoryIcon02"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@+id/NewCategoryIcon03"
-            app:layout_constraintStart_toEndOf="@+id/NewCategoryIcon01"
-            app:layout_constraintTop_toTopOf="@+id/NewCategoryIcon01">
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/NewCategoryTxt02"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="texttexttexttexttexttexttext"
-            android:textAlignment="viewStart"
-            android:textSize="12sp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/NewCategoryIcon03"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/NewCategoryIcon02"
-            app:layout_constraintTop_toTopOf="@id/NewCategoryIcon02">
-
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/NewCategoryTxt03"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:text="texttexttexttexttexttexttext"
-            android:textAlignment="viewStart"
-            android:textSize="12sp" />
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+                <TextView
+                    android:id="@+id/NewCategoryTxt03"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="texttexttexttexttexttexttext"
+                    android:textAlignment="viewStart"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>
