@@ -11,14 +11,14 @@
         android:label="fragment_top"
         tools:layout="@layout/fragment_top" >
         <action
-            android:id="@+id/action_topFragment_to_categoryFragment2"
-            app:destination="@id/categoryFragment2" />
+            android:id="@+id/action_topFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
         <action
             android:id="@+id/action_topFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/categoryFragment2"
+        android:id="@+id/categoryFragment"
         android:name="com.android.example.skillsswapping.CategoryFragment"
         android:label="fragment_category"
         tools:layout="@layout/fragment_category" >
