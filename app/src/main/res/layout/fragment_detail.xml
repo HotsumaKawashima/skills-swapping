@@ -27,7 +27,7 @@
             tools:src="#808080" />
 
         <ImageView
-            android:id="@+id/service_rating_image"
+            android:id="@+id/postRatingImage"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginStart="8dp"
@@ -37,13 +37,13 @@
             tools:src="@android:drawable/btn_star_big_on" />
 
         <TextView
-            android:id="@+id/service_rating_text"
+            android:id="@+id/postRatingNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/service_rating_image"
-            app:layout_constraintStart_toEndOf="@+id/service_rating_image"
-            app:layout_constraintTop_toTopOf="@+id/service_rating_image"
+            app:layout_constraintBottom_toBottomOf="@+id/postRatingImage"
+            app:layout_constraintStart_toEndOf="@+id/postRatingImage"
+            app:layout_constraintTop_toTopOf="@+id/postRatingImage"
             tools:text="16" />
 
         <TextView

@@ -27,13 +27,13 @@ class MainActivity : AppCompatActivity(),
         }
 
         val navController = findNavController(R.id.nav_host_fragment)
-        val appBarConfiguration = AppBarConfiguration(navController.graph)
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav)
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
 
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav)
         bottomNavigationView.setupWithNavController(navController)
         bottomNavigationView.setOnNavigationItemSelectedListener(this)
-        toolbar.setupWithNavController(navController, appBarConfiguration)
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        toolbar.setupWithNavController(navController)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
