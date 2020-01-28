@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.example.skillsswapping.domain.Post
-import com.android.example.skillsswapping.domain.User
 
 /**
  * A simple [Fragment] subclass.

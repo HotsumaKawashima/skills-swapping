@@ -4,27 +4,40 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity(),
     BottomNavigationView.OnNavigationItemSelectedListener {
 
+    private val viewModel by viewModels<MainViewModel> {
+        MainViewModel.Factory(this)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val userId = intent.getStringExtra("userId")
+        val userName = intent.getStringExtra("userName")
+        val userPassword = intent.getStringExtra("userPassword")
 
-        if(userId == null) {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
+        if(userName != null && userPassword != null) {
+            viewModel.loginWithUserName(userName, userPassword)
         }
+
+        if(viewModel.isLogin.value != true) {
+            startLoginActivity()
+        }
+
+        viewModel.isLogin.observe(this, Observer { isLogin ->
+            if(!isLogin) {
+                startLoginActivity()
+            }
+        })
 
         val navController = findNavController(R.id.nav_host_fragment)
 
@@ -44,5 +57,11 @@ class MainActivity : AppCompatActivity(),
             navController.navigate(item.itemId)
         }
         return true
+    }
+
+    private fun startLoginActivity() {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
