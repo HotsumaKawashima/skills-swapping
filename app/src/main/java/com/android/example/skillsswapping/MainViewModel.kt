@@ -1,6 +1,7 @@
 package com.android.example.skillsswapping
 
 import android.app.Application
+import android.content.Context
 import android.os.Bundle
 import androidx.lifecycle.*
 import androidx.room.Room
@@ -25,39 +26,16 @@ class MainViewModel(private val application: Application, handle: SavedStateHand
     private val viewModelJob = Job()
     private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
-    val isLogin = handle.getLiveData<Boolean>("isLogin").apply { value ?: false }
-    private val userName = handle.getLiveData<String>("userName")
-    private val userPassword = handle.getLiveData<String>("userPassword")
+    private val PREFERENCE_MAIN = "PREFERENCE_MAIN"
+    private val PREFERENCE_IS_LOGIN = "PREFERENCE_IS_LOGIN"
 
-    init {
-        viewModelScope.launch {
-            load()
-        }
-    }
-
-    fun loginWithUserName(userName: String, userPassword: String) {
-        this.userName.value = userName
-        this.userPassword.value = userPassword
-        isLogin.value = true
-    }
+    val isLogin = MutableLiveData<Boolean>(application
+        .getSharedPreferences(PREFERENCE_MAIN, Context.MODE_PRIVATE)
+        .getBoolean(PREFERENCE_IS_LOGIN, false)
+    )
 
     fun logout() {
-        userName.value = null
-        userPassword.value = null
         isLogin.value = false
-    }
-
-    suspend fun load() {
-        withContext(Dispatchers.IO) {
-            val db = Room.databaseBuilder(
-                application,
-                AppDatabase::class.java, "t2"
-            )
-                .createFromAsset("default.db")
-                .build()
-
-            println(db.userDao().getAllUser())
-        }
     }
 
     override fun onCleared() {

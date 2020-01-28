@@ -1,5 +1,6 @@
 package com.android.example.skillsswapping
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -22,15 +23,12 @@ class MainActivity : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val userName = intent.getStringExtra("userName")
-        val userPassword = intent.getStringExtra("userPassword")
+        val className = intent.getStringExtra("className")
 
-        if(userName != null && userPassword != null) {
-            viewModel.loginWithUserName(userName, userPassword)
-        }
-
-        if(viewModel.isLogin.value != true) {
+        if(viewModel.isLogin.value == false && className != LoginActivity::class.java.simpleName) {
             startLoginActivity()
+        } else {
+            viewModel.isLogin.value = true
         }
 
         viewModel.isLogin.observe(this, Observer { isLogin ->
