@@ -55,8 +55,7 @@ class LoginFragment : Fragment() {
     private fun startMainActivityWithUserName() {
         var activity = requireActivity()
         var intent = Intent(activity, MainActivity::class.java)
-        intent.putExtra("userName", viewModel.userName.value)
-        intent.putExtra("userPassword", viewModel.userPassword.value)
+        intent.putExtra("className", LoginActivity::class.java.simpleName)
         startActivity(intent)
         activity.finish()
     }
