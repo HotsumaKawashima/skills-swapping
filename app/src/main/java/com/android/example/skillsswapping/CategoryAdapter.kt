@@ -4,16 +4,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.android.example.skillsswapping.domain.Post
 
-class CategoryAdapter(val post: Array<Post>) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
+class CategoryAdapter(private val post: Array<Post>, private val listener: OnItemClickListener) :
+    RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
+
+    interface OnItemClickListener {
+        fun onItemClick(item: View?, position: Int)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val itemView = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.list_item_service, parent, false)
-        return CategoryViewHolder(itemView)
+        return CategoryViewHolder(itemView, listener)
     }
 
     override fun getItemCount(): Int {
@@ -24,7 +30,20 @@ class CategoryAdapter(val post: Array<Post>) : RecyclerView.Adapter<CategoryAdap
         holder.txtDescription.text = post.get(position).description
     }
 
-    class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        var txtDescription:TextView = itemView.findViewById(R.id.postDescriptionTxt)
+    class CategoryViewHolder(itemView: View, private val listener: OnItemClickListener) :
+        RecyclerView.ViewHolder(itemView), View.OnClickListener {
+        var txtDescription: TextView = itemView.findViewById(R.id.postDescriptionTxt)
+        var constraintDetailItem: ConstraintLayout =
+            itemView.findViewById(R.id.constraintDetailItem)
+
+        init {
+            constraintDetailItem.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            when (v?.id) {
+                R.id.constraintDetailItem -> listener.onItemClick(v, adapterPosition)
+            }
+        }
     }
 }
