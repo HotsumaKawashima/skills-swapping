@@ -23,17 +23,20 @@ class CategoryFragment : Fragment(), CategoryAdapter.OnItemClickListener {
 
     // this is data for recycler view
     private val posts = arrayOf(
-        Post(
-            " private lateinit var txtTitle: TextView\n" +
-                    "    private lateinit var recyclerView: RecyclerView\n" +
-                    "    private var bundle: Bundle? = null\n" +
-                    "    override fun onCreateView(\n"
-        ),
-        Post("post02post02post02post02post02post02post02"),
-        Post("post03post03post03post03post03post03post03"),
-        Post("post04post04post04post04post04post04post04"),
-        Post("post05post05post05post05post05post05post05"),
-        Post("post06post06post06post06post06post06post06")
+        Post("01","private lateinit var txtTitle: TextView\n" +
+                "    private lateinit var recyclerView: RecyclerView\n" +
+                "    private var bundle: Bundle? = null\n" +
+                "    override fun onCreateView(\n" +
+                "        inflater: LayoutInflater, container: ViewGroup?,\n" +
+                "        savedInstanceState: Bundle?\n" +
+                "    ): View? {\n" +
+                "        return inflater.inflate(R.layout.fragment_category, container, false)\n" +
+                "    }"),
+        Post("02", "post02post02post02post02post02post02post02"),
+        Post("03","post03post03post03post03post03post03post03"),
+        Post("04","post04post04post04post04post04post04post04"),
+        Post("05","post05post05post05post05post05post05post05"),
+        Post("06","post06post06post06post06post06post06post06")
     )
 
     override fun onCreateView(

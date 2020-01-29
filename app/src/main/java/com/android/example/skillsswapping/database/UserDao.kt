@@ -1,5 +1,6 @@
 package com.android.example.skillsswapping.database
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -8,6 +9,9 @@ import com.android.example.skillsswapping.database.User
 
 @Dao
 interface UserDao {
+
+    @Query("SELECT * FROM user LIMIT 1")
+    fun getUser(): LiveData<User>
 
     @Query("SELECT * FROM user WHERE user_id = :id LIMIT 1")
     fun getUserById(id: Int): User
