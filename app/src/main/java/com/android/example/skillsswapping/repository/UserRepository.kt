@@ -6,6 +6,8 @@ import kotlinx.coroutines.withContext
 
 class UserRepository(private val database: AppDatabase) {
 
+    val loginUser = database.userDao().getUser()
+
     suspend fun authenticate(userName: String, userPassword: String) : Boolean {
         val user = withContext(Dispatchers.IO) {
             database.userDao().getUserByName(userName, userPassword)
