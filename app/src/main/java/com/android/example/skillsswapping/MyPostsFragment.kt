@@ -29,14 +29,14 @@ class MyPostsFragment : Fragment() {
         val recyclerView:RecyclerView = rootView.findViewById(R.id.myPostsRecyclerView)
 
         // 2. set layoutManger
-        recyclerView.layoutManager = LinearLayoutManager(getActivity())
+        recyclerView.layoutManager = LinearLayoutManager(requireActivity())
 
         val model: MyPostsViewModel by viewModels()
-        val myPostsAdapter:MyPostsAdapter? = MyPostsAdapter(getActivity())
+        val myPostsAdapter:MyPostsAdapter? = MyPostsAdapter(requireActivity())
 
         model.getPosts().observe(this, Observer<List<Post>>{posts->
                 println("observe method is called $ posts is $posts")
-                myPostsAdapter?.submitList(posts)
+                myPostsAdapter?.updateList(posts)
         })
 
         // 3. set adapter

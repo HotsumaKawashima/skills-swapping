@@ -42,8 +42,9 @@ class MyPostsAdapter(val context: FragmentActivity?) : ListAdapter<Post, MyPosts
         }
     }
 
-    override fun submitList(list: List<Post>?) {
-        super.submitList(list)
+    fun updateList(list: List<Post>) {
+        posts = list
+        submitList(list)
         println("submitList is called & list is $list")
     }
 
