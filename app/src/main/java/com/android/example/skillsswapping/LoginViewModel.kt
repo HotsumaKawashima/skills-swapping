@@ -42,8 +42,8 @@ class LoginViewModel(application: Application, handle: SavedStateHandle) : ViewM
     private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
     val authenticationState = MutableLiveData<AuthenticationState>(AuthenticationState.UNAUTHENTICATED)
-    val userName = MutableLiveData<String>()
-    val userPassword = MutableLiveData<String>()
+    val userName = MutableLiveData<String>("name")
+    val userPassword = MutableLiveData<String>("password")
 
     fun authenticate() {
         viewModelScope.launch {
