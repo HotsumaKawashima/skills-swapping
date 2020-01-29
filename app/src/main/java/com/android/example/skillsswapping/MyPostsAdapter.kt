@@ -5,15 +5,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.android.example.skillsswapping.domain.Post
 
-class MyPostsAdapter(val context: FragmentActivity?, val posts: Array<Post>) : RecyclerView.Adapter<MyPostsAdapter.MyPostsViewHolder>(){
+class MyPostsAdapter(val context: FragmentActivity?) : ListAdapter<Post, MyPostsAdapter.MyPostsViewHolder>(DiffCallback()) {
+
+    var posts: List<Post> = emptyList()
+
+//    var posts: List<Post> = listOf(
+//        Post("01", "post01post01post01post01post01post01post01")
+//    )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyPostsViewHolder {
-       val itemView = LayoutInflater
-           .from(context)
-           .inflate(R.layout.list_item_my_post, parent,false)
+        val itemView = LayoutInflater
+            .from(context)
+            .inflate(R.layout.list_item_my_post, parent, false)
         return MyPostsViewHolder(itemView)
     }
 
@@ -22,8 +30,7 @@ class MyPostsAdapter(val context: FragmentActivity?, val posts: Array<Post>) : R
     }
 
     override fun onBindViewHolder(holder: MyPostsViewHolder, position: Int) {
-       val user = posts[position]
-        holder.bind(user)
+        holder.bind(getItem(position))
     }
 
     // ViewHolder
@@ -34,4 +41,22 @@ class MyPostsAdapter(val context: FragmentActivity?, val posts: Array<Post>) : R
             postDescriptionTxt.text = item.description
         }
     }
+
+    fun updateList(list: List<Post>) {
+        posts = list
+        submitList(list)
+        println("submitList is called & list is $list")
+    }
+
+    class DiffCallback : DiffUtil.ItemCallback<Post>() {
+        override fun areItemsTheSame(oldItem: Post, newItem: Post): Boolean {
+            println("DiffCallback")
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean {
+            return oldItem.id == newItem.id
+        }
+    }
 }
+
