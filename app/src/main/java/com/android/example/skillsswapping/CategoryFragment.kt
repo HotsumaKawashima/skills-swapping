@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.example.skillsswapping.domain.Post
+import com.android.example.skillsswapping.database.Service
 
 /**
  * A simple [Fragment] subclass.
@@ -22,22 +22,28 @@ class CategoryFragment : Fragment(), CategoryAdapter.OnItemClickListener {
     private lateinit var recyclerView: RecyclerView
 
     // this is data for recycler view
-    private val posts = arrayOf(
-        Post("01","private lateinit var txtTitle: TextView\n" +
-                "    private lateinit var recyclerView: RecyclerView\n" +
-                "    private var bundle: Bundle? = null\n" +
-                "    override fun onCreateView(\n" +
-                "        inflater: LayoutInflater, container: ViewGroup?,\n" +
-                "        savedInstanceState: Bundle?\n" +
-                "    ): View? {\n" +
-                "        return inflater.inflate(R.layout.fragment_category, container, false)\n" +
-                "    }"),
-        Post("02", "post02post02post02post02post02post02post02"),
-        Post("03","post03post03post03post03post03post03post03"),
-        Post("04","post04post04post04post04post04post04post04"),
-        Post("05","post05post05post05post05post05post05post05"),
-        Post("06","post06post06post06post06post06post06post06")
-    )
+        val posts = arrayOf(
+            Service(
+                0,"Art", "private lateinit var txtTitle: TextView\n" +
+                        "    private lateinit var recyclerView: RecyclerView\n" +
+                        "    private var bundle: Bundle? = null\n" +
+                        "    override fun onCreateView(\n" +
+                        "        inflater: LayoutInflater, container: ViewGroup?,\n" +
+                        "        savedInstanceState: Bundle?\n" +
+                        "    ): View? {\n" +
+                        "        return inflater.inflate(R.layout.fragment_category, container, false)\n" +
+                        "    }"
+            , "Online", "$100 for an hour"),
+            Service(
+                1,"Art",
+                "post02post02post02post02post02post02post02"
+                , "Online", "$30 for an hour"),
+            Service(
+                3,"Programming",
+                "post03post03post03post03post03post03post03"
+                , "Online", "$50 for an hour"
+            )
+        )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,6 +55,7 @@ class CategoryFragment : Fragment(), CategoryAdapter.OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         txtTitle = view.findViewById(R.id.category_name_text)
         // 1. get a reference to recyclerView
         recyclerView = view.findViewById(R.id.categoryRecyclerView)

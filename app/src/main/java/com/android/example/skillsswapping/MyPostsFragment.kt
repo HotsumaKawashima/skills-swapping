@@ -2,15 +2,16 @@ package com.android.example.skillsswapping
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.example.skillsswapping.domain.Post
+import com.android.example.skillsswapping.database.Service
+
 
 /**
  * A simple [Fragment] subclass.
@@ -34,10 +35,12 @@ class MyPostsFragment : Fragment() {
         val model: MyPostsViewModel by viewModels()
         val myPostsAdapter:MyPostsAdapter? = MyPostsAdapter(requireActivity())
 
-        model.getPosts().observe(this, Observer<List<Post>>{posts->
-                println("observe method is called $ posts is $posts")
-                myPostsAdapter?.updateList(posts)
+        model.getPosts().observe(viewLifecycleOwner, object : Observer<List<Service>> {
+            override fun onChanged(service: List<Service>) {
+                myPostsAdapter?.updateList(service)
+            }
         })
+
 
         // 3. set adapter
         recyclerView.adapter = myPostsAdapter
