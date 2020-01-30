@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [User::class], version = 1)
+@Database(entities = [User::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
 }
@@ -21,6 +21,7 @@ fun getDatabase(context: Context): AppDatabase {
                 "app_database"
             )
                 .createFromAsset("default.db")
+                .fallbackToDestructiveMigration()
                 .build()
         }
     }
