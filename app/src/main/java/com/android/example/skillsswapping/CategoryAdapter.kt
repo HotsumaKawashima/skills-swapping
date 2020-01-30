@@ -5,9 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.android.example.skillsswapping.domain.Post
+import com.android.example.skillsswapping.database.Service
 
-class CategoryAdapter(val post: Array<Post>) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
+class CategoryAdapter(val service: Array<Service>) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val itemView = LayoutInflater
@@ -17,11 +17,11 @@ class CategoryAdapter(val post: Array<Post>) : RecyclerView.Adapter<CategoryAdap
     }
 
     override fun getItemCount(): Int {
-        return 4
+        return 3
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.txtDescription.text = post.get(position).description
+        holder.txtDescription.text = service.get(position).description
     }
 
     class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
