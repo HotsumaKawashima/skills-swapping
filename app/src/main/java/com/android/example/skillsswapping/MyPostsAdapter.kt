@@ -8,15 +8,11 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.android.example.skillsswapping.domain.Post
+import com.android.example.skillsswapping.database.Service
 
-class MyPostsAdapter(val context: FragmentActivity?) : ListAdapter<Post, MyPostsAdapter.MyPostsViewHolder>(DiffCallback()) {
+class MyPostsAdapter(val context: FragmentActivity?) : ListAdapter<Service, MyPostsAdapter.MyPostsViewHolder>(DiffCallback()) {
 
-    var posts: List<Post> = emptyList()
-
-//    var posts: List<Post> = listOf(
-//        Post("01", "post01post01post01post01post01post01post01")
-//    )
+    var services: List<Service> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyPostsViewHolder {
         val itemView = LayoutInflater
@@ -26,7 +22,7 @@ class MyPostsAdapter(val context: FragmentActivity?) : ListAdapter<Post, MyPosts
     }
 
     override fun getItemCount(): Int {
-        return posts.size
+        return services.size
     }
 
     override fun onBindViewHolder(holder: MyPostsViewHolder, position: Int) {
@@ -37,24 +33,23 @@ class MyPostsAdapter(val context: FragmentActivity?) : ListAdapter<Post, MyPosts
     class MyPostsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val postDescriptionTxt: TextView = itemView.findViewById(R.id.postDescriptionTxt)
 
-        fun bind(item: Post) {
+        fun bind(item: Service) {
             postDescriptionTxt.text = item.description
         }
     }
 
-    fun updateList(list: List<Post>) {
-        posts = list
+    fun updateList(list: List<Service>) {
+        services = list
         submitList(list)
         println("submitList is called & list is $list")
     }
 
-    class DiffCallback : DiffUtil.ItemCallback<Post>() {
-        override fun areItemsTheSame(oldItem: Post, newItem: Post): Boolean {
-            println("DiffCallback")
+    class DiffCallback : DiffUtil.ItemCallback<Service>() {
+        override fun areItemsTheSame(oldItem: Service, newItem: Service): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: Post, newItem: Post): Boolean {
+        override fun areContentsTheSame(oldItem: Service, newItem: Service): Boolean {
             return oldItem.id == newItem.id
         }
     }

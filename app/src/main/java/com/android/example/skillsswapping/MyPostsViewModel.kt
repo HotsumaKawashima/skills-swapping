@@ -1,20 +1,21 @@
 package com.android.example.skillsswapping
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.android.example.skillsswapping.domain.Post
+import com.android.example.skillsswapping.database.Service
+import com.android.example.skillsswapping.database.getDatabase
+import com.android.example.skillsswapping.repository.ServiceRepository
 
-class MyPostsViewModel: ViewModel(){
 
-    var posts = MutableLiveData<List<Post>>( listOf(
-        Post("01", "post01post01post01post01post01post01post01"),
-        Post("02", "post02post02post02post02post02post02post02"),
-        Post("03", "post03post03post03post03post03post03post03"),
-        Post("04", "post04post04post04post04post04post04post04")
-    ) )
+class MyPostsViewModel(application: Application): AndroidViewModel(application){
 
-    fun getPosts(): LiveData<List<Post>> {
-        return posts
+    private val serviceRepository = ServiceRepository(getDatabase(application))
+
+    var postedServices = serviceRepository.getPostedServices()
+
+    fun getPosts(): LiveData<List<Service>> {
+        return postedServices
     }
+
 }
