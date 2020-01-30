@@ -15,9 +15,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity(),
     BottomNavigationView.OnNavigationItemSelectedListener {
 
-    private val viewModel by viewModels<MainViewModel> {
-        MainViewModel.Factory(this)
-    }
+    private val PREFERENCE_MAIN = "PREFERENCE_MAIN"
+    private val PREFERENCE_IS_LOGIN = "PREFERENCE_IS_LOGIN"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,17 +24,18 @@ class MainActivity : AppCompatActivity(),
 
         val className = intent.getStringExtra("className")
 
-        if(viewModel.isLogin.value == false && className != LoginActivity::class.java.simpleName) {
+        val isLogin = application
+            .getSharedPreferences(PREFERENCE_MAIN, Context.MODE_PRIVATE)
+            .getBoolean(PREFERENCE_IS_LOGIN, false)
+
+        if(!isLogin && className != LoginActivity::class.java.simpleName) {
             startLoginActivity()
         } else {
-            viewModel.isLogin.value = true
+            application.getSharedPreferences(PREFERENCE_MAIN, Context.MODE_PRIVATE)
+                .edit()
+                .putBoolean(PREFERENCE_IS_LOGIN, true)
+                .apply()
         }
-
-        viewModel.isLogin.observe(this, Observer { isLogin ->
-            if(!isLogin) {
-                startLoginActivity()
-            }
-        })
 
         val navController = findNavController(R.id.nav_host_fragment)
 
