@@ -5,7 +5,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.android.example.skillsswapping.database.AppDatabase
 import com.android.example.skillsswapping.database.UserDao
-import com.android.example.skillsswapping.util.LiveDataTestUtil.getValue
 import junit.framework.Assert.assertEquals
 import org.junit.After
 import org.junit.Before
@@ -24,7 +23,7 @@ class AppDatabaseTest {
 
         appDatabase = Room.databaseBuilder(context, AppDatabase::class.java, "data")
             .allowMainThreadQueries()
-            .fallbackToDestructiveMigration()
+            .createFromAsset("default.db")
             .build()
 
         userDao = appDatabase.userDao()
@@ -37,7 +36,7 @@ class AppDatabaseTest {
 
     @Test
     fun getUser() {
-        val user = getValue(userDao.getUser())
+        val user = userDao.getUserByName("name", "password")
         assertEquals(user.name, "name")
         assertEquals(user.password, "password")
     }
