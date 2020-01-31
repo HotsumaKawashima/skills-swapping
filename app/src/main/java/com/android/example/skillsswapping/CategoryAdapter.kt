@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import com.android.example.skillsswapping.domain.Post
+import com.android.example.skillsswapping.database.Service
 
-class CategoryAdapter(private val post: Array<Post>, private val listener: OnItemClickListener) :
+class CategoryAdapter(private val service: Array<Service>, private val listener: OnItemClickListener) :
     RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
     interface OnItemClickListener {
@@ -23,11 +23,11 @@ class CategoryAdapter(private val post: Array<Post>, private val listener: OnIte
     }
 
     override fun getItemCount(): Int {
-        return 4
+        return 3
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.txtDescription.text = post.get(position).description
+        holder.txtDescription.text = service.get(position).description
     }
 
     class CategoryViewHolder(itemView: View, private val listener: OnItemClickListener) :
